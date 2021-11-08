@@ -9,7 +9,7 @@
             <div class="col-sm-12">
                 <!-- Authentication card start -->
                 <div class="login-card card-block auth-body mr-auto ml-auto">
-                    <form class="md-float-material" method="POST" action="" enctype="multipart/form-data"  id="form">
+                    <form class="md-float-material" method="POST" action="" enctype="multipart/form-data" >
                         @csrf
                         <div class="text-center">
                             <img src="{{asset('assets/')}}/images/auth/logo-dark.png" alt="logo.png">

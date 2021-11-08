@@ -55,6 +55,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" id="btn-cancel-save">Cancel</button>
                 </div>
             </div>
         </form>
@@ -125,6 +126,10 @@
                 console.log("123")
             }
         })
+    })
+    $('#btn-cancel-save').click(function () {
+        collapse('product-form');
+        $("#form")[0].reset()
     })
     async function deleteData(url) {
         try {

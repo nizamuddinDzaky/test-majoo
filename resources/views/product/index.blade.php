@@ -87,7 +87,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label><b>Price</b></label>
-                                <input name="price"   data-identifier = "formatrupiah" type="text" class="form-control price" id="" placeholder="" value="123123">
+                                <input name="price"   data-identifier = "formatrupiah" type="text" class="form-control price" id="" placeholder="">
                             </div>
                         </div>
                     </div>
@@ -114,6 +114,7 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-danger" id="btn-cancel-save">Cancel</button>
                 </div>
             </div>
         </form>
@@ -176,7 +177,9 @@
         let resp = await send_data(url, 'GET', []);
         console.log(resp);
         $('#form').fromJSON(JSON.stringify(resp.data.product));
-        collapse('product-form');
+        if(!$('.product-form').is(":visible")){
+            collapse('product-form');
+        }
         let defaultPathImage = $('#defaultPatImage').val()
         $('#avatar_preview').attr('src',defaultPathImage +'/'+ resp.data.product.path_image)
         $('#form').attr('action', $(this).data('url-form'))
@@ -198,6 +201,10 @@
             }
         })
     })
+    $('#btn-cancel-save').click(function () {
+        collapse('product-form');s
+        $("#form")[0].reset()
+    })
     async function deleteData(url) {
         try {
             
@@ -215,6 +222,7 @@
             })
         }
     }
+    
 function _(el) {
     return document.getElementById(el);
 }
